@@ -1,24 +1,17 @@
-# README
+## Task Management API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Initial prompt:
 
-Things you may want to cover:
+I want to create a ruby on rails API application called task management system using Devise as authentication using JWT.
+The API is a simple task management system with tasks, each task have title, description, status and due_date. And the Tasks is associated with the user.
+I want you to create the create, read, update and delete task endpoints.
 
-* Ruby version
+*Cursor Process is on cursor_build_task_management_api.md*
 
-* System dependencies
 
-* Configuration
+# Fix or improvements:
 
-* Database creation
+Since this is a small task, i dont see any major concerns about that tha AI did.
+The only thing i would change is the creation of the serializers on task_controller.rb.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Normally we need more intervation on the code, but since its a small feature, i think its ok.
