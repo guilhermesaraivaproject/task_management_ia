@@ -1,0 +1,209 @@
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Testia2'*/[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE DATABASE "testia2_development" ENCODING = 'unicode' /*application='Testia2'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Testia2'*/[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE DATABASE "testia2_test" ENCODING = 'unicode' /*application='Testia2'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Testia2'*/[0m
+Migrating to DeviseCreateUsers (20250825212330)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='Testia2'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Testia2'*/[0m
+Migrating to DeviseCreateUsers (20250825212330)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='Testia2'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Testia2'*/[0m
+Migrating to CreateTasks (20250825212509)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying, "description" text, "status" character varying, "due_date" date, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='Testia2'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7299871513874425605) /*application='Testia2'*/[0m
+  [1m[35m (16.4ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20250825212330'), ('20250825212509') ON CONFLICT DO NOTHING; /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Testia2'*/[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('test@example.com', '$2a$12$JB5FA0H8K6gDPehMHcfLB.kwoKHoi1uqiHsMIt3TwJBZgueCTnLc6', NULL, NULL, NULL, '2025-08-25 21:26:34.413604', '2025-08-25 21:26:34.413604') RETURNING "id" /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[36mTask Create (2.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "due_date", "user_id", "created_at", "updated_at") VALUES ('Complete project proposal', 'Write and submit the project proposal for Q2', 'pending', '2025-08-26 00:00:00', 1, '2025-08-25 21:26:34.448643', '2025-08-25 21:26:34.448643') RETURNING "id" /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[36mTask Create (2.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "due_date", "user_id", "created_at", "updated_at") VALUES ('Review team performance', 'Conduct monthly review of team members', 'in_progress', '2025-09-01 00:00:00', 1, '2025-08-25 21:26:34.457189', '2025-08-25 21:26:34.457189') RETURNING "id" /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[36mTask Create (2.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "due_date", "user_id", "created_at", "updated_at") VALUES ('Update documentation', 'Update API documentation with new endpoints', 'completed', '2025-08-24 00:00:00', 1, '2025-08-25 21:26:34.464304', '2025-08-25 21:26:34.464304') RETURNING "id" /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Testia2'*/[0m
+  [1m[36mTask Create (2.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "due_date", "user_id", "created_at", "updated_at") VALUES ('Client presentation', 'Present project status to client stakeholders', 'pending', '2025-08-28 00:00:00', 1, '2025-08-25 21:26:34.472680', '2025-08-25 21:26:34.472680') RETURNING "id" /*application='Testia2'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='Testia2'*/[0m
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:27:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Testia2'*/[0m
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 379ms (Views: 0.4ms | ActiveRecord: 10.5ms (1 query, 0 cached) | GC: 27.1ms)
+
+
+Started GET "/api/v1/tasks" for ::1 at 2025-08-25 18:27:14 -0300
+Processing by Api::V1::TasksController#index as */*
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+actionpack (8.0.2.1) lib/action_dispatch/request/session.rb:263:in 'ActionDispatch::Request::Session#load_for_write!'
+actionpack (8.0.2.1) lib/action_dispatch/request/session.rb:155:in 'ActionDispatch::Request::Session#[]='
+devise (4.9.4) lib/devise/controllers/store_location.rb:40:in 'Devise::Controllers::StoreLocation#store_location_for'
+devise (4.9.4) lib/devise/failure_app.rb:256:in 'Devise::FailureApp#store_location!'
+devise (4.9.4) lib/devise/failure_app.rb:87:in 'Devise::FailureApp#redirect'
+devise (4.9.4) lib/devise/failure_app.rb:48:in 'Devise::FailureApp#respond'
+actionpack (8.0.2.1) lib/abstract_controller/base.rb:226:in 'AbstractController::Base#process_action'
+actionpack (8.0.2.1) lib/abstract_controller/callbacks.rb:261:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:120:in 'block in ActiveSupport::Callbacks#run_callbacks'
+i18n (1.14.7) lib/i18n.rb:353:in 'I18n::Base#with_locale'
+devise (4.9.4) lib/devise/failure_app.rb:23:in 'block in <class:FailureApp>'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:129:in 'BasicObject#instance_exec'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:129:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:140:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/abstract_controller/callbacks.rb:260:in 'AbstractController::Callbacks#process_action'
+actionpack (8.0.2.1) lib/abstract_controller/base.rb:163:in 'AbstractController::Base#process'
+actionpack (8.0.2.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.0.2.1) lib/action_controller/metal.rb:319:in 'block in ActionController::Metal.action'
+devise (4.9.4) lib/devise/failure_app.rb:28:in 'Devise::FailureApp.call'
+devise (4.9.4) lib/devise/delegator.rb:7:in 'Devise::Delegator#call'
+warden (1.2.9) lib/warden/manager.rb:143:in 'Warden::Manager#call_failure_app'
+warden (1.2.9) lib/warden/manager.rb:129:in 'Warden::Manager#process_unauthenticated'
+warden (1.2.9) lib/warden/manager.rb:44:in 'Warden::Manager#call'
+rack (3.2.0) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.0) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.0) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.0) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.0) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.1) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.1) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.1) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.1) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.1) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.1) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.1) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:28:21 -0300
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 313ms (Views: 0.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:28:28 -0300
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 304ms (Views: 0.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks" for ::1 at 2025-08-25 18:28:28 -0300
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Testia2',controller='tasks'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 /*action='index',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:10:in 'Enumerable#map'
+Completed 200 OK in 58ms (Views: 0.3ms | ActiveRecord: 3.5ms (2 queries, 0 cached) | GC: 3.8ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:28:35 -0300
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 304ms (Views: 0.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/tasks" for ::1 at 2025-08-25 18:28:36 -0300
+Processing by Api::V1::TasksController#create as */*
+  Parameters: {"task" => {"title" => "Test API Task", "description" => "Testing the API endpoints", "status" => "pending", "due_date" => "2025-09-01"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='create',application='Testia2',controller='tasks'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in 'Api::V1::TasksController#create'
+  [1m[36mTask Create (1.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "due_date", "user_id", "created_at", "updated_at") VALUES ('Test API Task', 'Testing the API endpoints', 'pending', '2025-09-01 00:00:00', 1, '2025-08-25 21:28:36.220358', '2025-08-25 21:28:36.220358') RETURNING "id" /*action='create',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in 'Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*action='create',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:47:in 'Api::V1::TasksController#create'
+Completed 201 Created in 13ms (Views: 0.2ms | ActiveRecord: 4.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:28:45 -0300
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 303ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/tasks/5" for ::1 at 2025-08-25 18:28:45 -0300
+Processing by Api::V1::TasksController#update as */*
+  Parameters: {"task" => {"status" => "completed"}, "id" => "5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='Testia2',controller='tasks'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 AND "tasks"."id" = 5 LIMIT 1 /*action='update',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:109:in 'Api::V1::TasksController#set_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='update',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:73:in 'Api::V1::TasksController#update'
+  [1m[36mTask Update (1.9ms)[0m  [1m[33mUPDATE "tasks" SET "status" = 'completed', "updated_at" = '2025-08-25 21:28:45.870606' WHERE "tasks"."id" = 5 /*action='update',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:73:in 'Api::V1::TasksController#update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*action='update',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:73:in 'Api::V1::TasksController#update'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 3.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2025-08-25 18:28:51 -0300
+Processing by Users::SessionsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "session" => {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Testia2',controller='sessions'*/[0m
+Completed 200 OK in 302ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/api/v1/tasks/5" for ::1 at 2025-08-25 18:28:52 -0300
+Processing by Api::V1::TasksController#destroy as */*
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='destroy',application='Testia2',controller='tasks'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 AND "tasks"."id" = 5 LIMIT 1 /*action='destroy',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:109:in 'Api::V1::TasksController#set_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='destroy',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:99:in 'Api::V1::TasksController#destroy'
+  [1m[36mTask Destroy (1.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = 5 /*action='destroy',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:99:in 'Api::V1::TasksController#destroy'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Testia2',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:99:in 'Api::V1::TasksController#destroy'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 4.8ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
